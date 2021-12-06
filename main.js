@@ -62,5 +62,17 @@ let myObject = {
     }
 }
 
+//string functions
+let newString = `Lamp Shade and lemon`.replace(`L`,`m`).toUpperCase().split(``);
+
+for(let i = 0; i < newString.length; i+=1) {
+    let a = newString.join(`i`);
+    console.log(a);
+}
+
+for (let character of newString){
+    console.log(character)
+}
 
 console.log(myObject);
+console.log(newString);
