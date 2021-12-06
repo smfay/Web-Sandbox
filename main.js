@@ -29,10 +29,27 @@ let enemy = {
   y: 5,
 }
 
+// This is undefined
+let myVariable;
+
+let myNullVariable = null;
+
+// Defining an array
+let myArray = [
+    { name: 'sean' },
+    4,
+    8,
+    'hello',
+];
+
+// Indexing into the zero-th element of an array
+console.log(myArray[1]);
+
 // Lots of ways to define functions inside an object
 let myObject = {
     x:5,
     y:10,
+    pizza: { toppings: ['pepperoni', 'mushrooms' ]},
     myFunction: randomString,
     myOtherFunction: function giveEight() {
       return 5 + 3
