@@ -2,12 +2,16 @@
     background-color: rgb(255, 255, 255);
     width: 30px;
      height: 30px;
-     margin: 2px;
+     margin: 5px;
      border: 2px solid black;
+     transition: all .8s;
+     box-shadow: 5px 5px 0px 1px black;
 }
 
 .occupied {
-    background-color: rgb(255, 0, 0);
+    background-color: red;
+    border: 2px solid red;
+    box-shadow: none;
 }
 
 .row {
