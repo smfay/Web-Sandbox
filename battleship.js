@@ -35,10 +35,16 @@ function initGrid() {
         for(let i = 0; i < boardHeight; i+=1) {
             let square = document.createElement("div")
             square.classList.add("square")
+            square.addEventListener("click", handleSelect)
             rowElement.appendChild(square)
         }
 
     }
+}
+
+function handleSelect(event) {
+    console.log(event);
+    event.srcElement.classList.add("occupied")
 }
 
 initGrid();

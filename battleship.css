@@ -1,8 +1,13 @@
 .square {
-    background-color: indianred;
-    width: 20px;
-     height: 20px;
+    background-color: rgb(255, 255, 255);
+    width: 30px;
+     height: 30px;
      margin: 2px;
+     border: 2px solid black;
+}
+
+.occupied {
+    background-color: rgb(255, 0, 0);
 }
 
 .row {
