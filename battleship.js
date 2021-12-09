@@ -31,6 +31,13 @@ function initGrid() {
         rowElement.classList.add("row")
         let gridElement = document.getElementById("human-grid")
         gridElement.appendChild(rowElement)
+        
+        for(let i = 0; i < boardHeight; i+=1) {
+            let square = document.createElement("div")
+            square.classList.add("square")
+            rowElement.appendChild(square)
+        }
+
     }
 }
 
