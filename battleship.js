@@ -13,9 +13,27 @@ function randomLocation() {
     return { x:x,y:y }
 }
 
+// Computer Ships
 for(let i = 0; i < 5; i+=1) {
     let point = randomLocation()
     compShips.push(point)
 }
 
+// Player Ships
+for(let i = 0; i < 5; i+=1) {
+    let point = randomLocation()
+    humanShips.push(point)
+}
+
+function initGrid() {
+    for(let i = 0; i < boardHeight; i+=1) {
+        let rowElement = document.createElement("div")
+        rowElement.classList.add("row")
+        let gridElement = document.getElementById("human-grid")
+        gridElement.appendChild(rowElement)
+    }
+}
+
+initGrid();
 console.log(compShips);
+console.log(humanShips);
