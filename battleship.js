@@ -1,5 +1,3 @@
-
-
 // board dimensions
 let boardWidth = 10;
 let boardHeight = 10;
