@@ -2,7 +2,6 @@
 let boardWidth = 10;
 let boardHeight = 10;
 let shipLimit = 5;
-
 let humanShips = [];
 let compShips = [];
 
@@ -13,9 +12,13 @@ function randomLocation() {
 }
 
 // Computer Ships
-for(let i = 0; i < 5; i+=1) {
-    let point = randomLocation()
-    compShips.push(point);
+for(let i = 0; compShips.length != shipLimit; i+=1) {
+    let point = randomLocation();
+    if(!shipExists(point)) {
+        compShips.push(point);
+    } else {
+        console.log("already a ship there")
+    }
 }
 
 function initGrid(id, onClick) {
