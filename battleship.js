@@ -28,9 +28,8 @@ function initGrid(id, onClick) {
         for(let x = 0; x < boardHeight; x+=1) {
             let square = document.createElement("div")
             square.classList.add("square")
-            square.setAttribute("x", x)
-            square.setAttribute("y", y)
-            square.setAttribute("id", id)
+            square.setAttribute("x", x);
+            square.setAttribute("y", y);
 
             square.addEventListener("click", onClick)
 
@@ -41,6 +40,7 @@ function initGrid(id, onClick) {
 }
 
 function startGame() {
+    initGrid("enemy-grid", attack);
 
 }
 
@@ -54,6 +54,28 @@ function handleSelect(event) {
     if(humanShips.length == shipLimit) {
         startGame();
     }
+}
+
+function attack(event) {
+    let x = event.target.getAttribute("x")
+    let y = event.target.getAttribute("y")
+    let point = { x: x, y: y }
+
+    if(shipExists(point)) {
+        event.srcElement.classList.add("hit")
+    } else {
+        event.srcElement.classList.add("empty")
+    }
+}
+
+function shipExists(point) {
+    for(let i = 0; i < compShips.length; i+=1) {
+        let point2 = compShips[i]
+        if (point2.x == point.x && point2.y == point.y) {
+            return true;
+        }
+    } 
+    return false;
 }
 
 initGrid("human-grid", handleSelect);
