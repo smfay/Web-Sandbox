@@ -14,7 +14,7 @@ function randomLocation() {
 // Computer Ships
 for(let i = 0; i < 5; i+=1) {
     let point = randomLocation()
-    compShips.push(point)
+    compShips.push(String(point));
 }
 
 function initGrid() {
@@ -41,6 +41,9 @@ function handleSelect(event) {
     let x = event.target.getAttribute("x")
     let y = event.target.getAttribute("y")
     let point = { x: x, y: y }
+    event.target.removeEventListener("click", handleSelect)
+
+
     humanShips.push(point);
     console.log(x,y,humanShips);
     event.srcElement.classList.add("occupied")
