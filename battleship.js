@@ -16,8 +16,7 @@ for(let i = 0; compShips.length != shipLimit; i+=1) {
     let point = randomLocation();
     if(!shipExists(point)) {
         compShips.push(point);
-    } else {
-        console.log("already a ship there")
+    }
     }
 }
 
