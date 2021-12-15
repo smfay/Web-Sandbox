@@ -3,20 +3,20 @@ let boardWidth = 10;
 let boardHeight = 10;
 let shipLimit = 5;
 let humanShips = [];
-let compShips = [];
+let compShips = new Set();
 
 function randomLocation() {
     let x = Math.round(Math.random() * boardWidth);
     let y = Math.round(Math.random() * boardHeight);
+    return `${x}-${y}`
     return { x: String(x),y: String(y) }
 }
 
 // Computer Ships
-for(let i = 0; compShips.length != shipLimit; i+=1) {
+for(let i = 0; compShips.size != shipLimit; i+=1) {
     let point = randomLocation();
-    if(!shipExists(point)) {
-        compShips.push(point);
-    }
+    if(!compShips.has(point)) {
+        compShips.add(point);
     }
 }
 
@@ -61,25 +61,25 @@ function handleSelect(event) {
 function attack(event) {
     let x = event.target.getAttribute("x")
     let y = event.target.getAttribute("y")
-    let point = { x: x, y: y }
+    let point = `${x}-${y}`
 
-    if(shipExists(point)) {
+    if(compShips.has(point)) {
         event.srcElement.classList.add("hit")
     } else {
         event.srcElement.classList.add("empty")
     }
 }
 
-function shipExists(point) {
-    console.log(point);
-    for(let i = 0; i < compShips.length; i+=1) {
-        let point2 = compShips[i]
-        if (point2.x == point.x && point2.y == point.y) {
-            return true;
-        }
-    } 
-    return false;
-}
+// function shipExists(point) {
+//     console.log(point);
+//     for(let i = 0; i < compShips.size; i+=1) {
+//         let point2 = compShips[i]
+//         if (point2.x == point.x && point2.y == point.y) {
+//             return true;
+//         }
+//     } 
+//     return false;
+// }
 
 initGrid("human-grid", handleSelect);
 console.log(compShips);
