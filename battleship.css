@@ -22,9 +22,14 @@
 
 .content {
     margin: 0 auto;
-    width: 600px;
+    width: 1000px;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+
+.image {
+    width: 50%;
 }
