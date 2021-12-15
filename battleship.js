@@ -17,22 +17,18 @@ for(let i = 0; i < 5; i+=1) {
     compShips.push(point)
 }
 
-// Player Ships
-for(let i = 0; i < 5; i+=1) {
-    let point = randomLocation()
-    humanShips.push(point)
-}
-
 function initGrid() {
-    for(let i = 0; i < boardHeight; i+=1) {
+    for(let y = 0; y < boardHeight; y+=1) {
         let rowElement = document.createElement("div")
         rowElement.classList.add("row")
         let gridElement = document.getElementById("human-grid")
         gridElement.appendChild(rowElement)
         
-        for(let i = 0; i < boardHeight; i+=1) {
+        for(let x = 0; x < boardHeight; x+=1) {
             let square = document.createElement("div")
             square.classList.add("square")
+            square.setAttribute("x", x)
+            square.setAttribute("y", y)
             square.addEventListener("click", handleSelect)
             rowElement.appendChild(square)
         }
@@ -42,6 +38,11 @@ function initGrid() {
 
 function handleSelect(event) {
     console.log(event);
+    let x = event.target.getAttribute("x")
+    let y = event.target.getAttribute("y")
+    let point = { x: x, y: y }
+    humanShips.push(point);
+    console.log(x,y,humanShips);
     event.srcElement.classList.add("occupied")
 }
 
