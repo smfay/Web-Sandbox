@@ -9,13 +9,13 @@ let compShips = [];
 function randomLocation() {
     let x = Math.round(Math.random() * boardWidth);
     let y = Math.round(Math.random() * boardHeight);
-    return { x:x,y:y }
+    return { x: String(x),y: String(y) }
 }
 
 // Computer Ships
 for(let i = 0; i < 5; i+=1) {
     let point = randomLocation()
-    compShips.push(String(point));
+    compShips.push(point);
 }
 
 function initGrid(id, onClick) {
@@ -69,6 +69,7 @@ function attack(event) {
 }
 
 function shipExists(point) {
+    console.log(point);
     for(let i = 0; i < compShips.length; i+=1) {
         let point2 = compShips[i]
         if (point2.x == point.x && point2.y == point.y) {
